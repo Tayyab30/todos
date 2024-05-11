@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "todos-app"
+version = "0.1.0"
+description = ""
+authors = ["frankgzz009 <frankgzzwork@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.0"
+uvicorn = {extras = ["standard"], version = "^0.29.0"}
+sqlmodel = "^0.0.18"
+mypy = "^1.10.0"
+psycopg2-binary = "^2.9.9"
+sqlalchemy = "^2.0.30"
+asyncpg = "^0.29.0"
+
+[tool.poetry.scripts]
+dev = "todos_app.main:start"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
