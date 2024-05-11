@@ -1,9 +1,23 @@
 from fastapi import FastAPI, HTTPException, Depends
 from sqlmodel import Session, SQLModel, create_engine, select, Relationship, Field
 from typing import List
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:3000",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class User(SQLModel, table=True):
   id: int = Field(default=None, primary_key=True)
